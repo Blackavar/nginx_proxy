@@ -7,8 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "nginx_proxy"
-
 template "/etc/nginx/conf.d/caching.conf" do
   source "caching.erb"
 end
