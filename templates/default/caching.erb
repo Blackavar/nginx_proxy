@@ -1,7 +1,7 @@
 server {
-  listen <%= node[:nginx-proxy][:listen_port] %>;
-  server_name <%= node[:nginx-proxy][:server_name] %>;
+  listen <%= node[:nginx_proxy][:listen_port] %>;
+  server_name <%= node[:nginx_proxy][:server_name] %>;
   location / {
-    proxy_pass <%= node[:nginx-proxy][:destination_url] %>;
+    proxy_pass <%= node[:nginx_proxy][:destination_url] %>;
   }
 }
