@@ -6,3 +6,14 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+package "nginx-proxy"
+
+template "/etc/nginx/conf.d/caching.conf" do
+  source "caching.erb"
+  notifies :restart, "service[nginx]"
+end
+
+service "nginx" do
+    action [:enable,:start]
+end
