@@ -11,7 +11,7 @@ include_recipe "nginx"
 
 caching_path = node['nginx_proxy']['conf_dir'] + "/caching.conf"
 template caching_path do
-  source "caching.erb"
+  source "caching.conf.erb"
 end
 
 if !!node['nginx_proxy']['terminate_ssl']
