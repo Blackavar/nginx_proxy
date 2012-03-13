@@ -14,6 +14,13 @@ template caching_path do
   source "caching.erb"
 end
 
+if !!node['nginx_proxy']['terminate_ssl']
+  ssl_terminate_path = node['nginx_proxy']['conf_dir'] + "/ssl_terminate.conf"
+  template ssl_terminate_path do
+    source "ssl_terminate.conf.erb"
+  end
+end
+
 service "nginx" do
   action [:restart]
 end

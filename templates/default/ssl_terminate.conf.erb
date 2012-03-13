@@ -1,0 +1,13 @@
+server {
+  listen <%= node['nginx_proxy']['ssl_port'] %>;
+  ssl on;
+  access_log  <%= node[:nginx][:log_dir] %>/ssl-access.log;
+  error_log  <%= node[:nginx][:log_dir] %>/ssl-error.log;
+  ssl_certificate <%= node['nginx_proxy']['ssl_certificate'] %>;
+  ssl_certificate_key <%= node['nginx_proxy']['ssl_certificate_key'] %>;
+  server_name <%= node['nginx_proxy']['server_name'] %>;
+  location / {
+    proxy_pass <%= node['nginx_proxy']['destination_url'] %>;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}
