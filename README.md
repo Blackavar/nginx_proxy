@@ -19,6 +19,7 @@ Debian or Ubuntu - Other platforms are untested.
 Attributes
 ==========
 
+* simple_forward - if true, do a simple port 80 forward. Default is false. 
 * conf_dir - location to drop the Nginx config files. Default is based on platform.
 * listen_port - Port for the Nginx server to listen on.  default is 80
 * ssl_port - Port to listen on for secure connections. Default 443
