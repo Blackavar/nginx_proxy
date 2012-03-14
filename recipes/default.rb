@@ -9,9 +9,9 @@
 
 include_recipe "nginx"
 
-caching_path = node['nginx_proxy']['conf_dir'] + "/caching.conf"
-template caching_path do
-  source "caching.conf.erb"
+dest_path = node['nginx_proxy']['conf_dir'] + "/proxy.conf"
+template dest_path do
+  source "proxy.conf.erb"
 end
 
 service "nginx" do
