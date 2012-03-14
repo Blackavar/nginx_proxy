@@ -35,7 +35,7 @@ Attributes
          },
          {
            listen_port:"85",
-           server_name:"www.example.com",
+           server_name:"api.example.com",
            destination_url:"http://127.0.0.1:15001"
          }]
 
