@@ -3,6 +3,11 @@ when "debian","ubuntu"
   set['nginx_proxy']['conf_dir']     = "/etc/nginx/conf.d"
 end
 
+default['nginx_proxy']['forward_servers'] = [
+{ 'listen_port' => 80,
+  'server_name' => "www.example.com",
+  'destination_url' => "http://127.0.0.1" }
+]
 default['nginx_proxy']['simple_forward'] = false
 default['nginx_proxy']['listen_port']  = "80"
 default['nginx_proxy']['ssl_port'] = "443"

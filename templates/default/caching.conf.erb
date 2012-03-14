@@ -1,7 +1,9 @@
+<% for forward_server in node['nginx_proxy']['forward_servers'] do %>
 server {
-  listen <%= node['nginx_proxy']['listen_port'] %>;
-  server_name <%= node['nginx_proxy']['server_name'] %>;
+  listen <%= forward_server['listen_port'] %>;
+  server_name <%= forward_server['server_name'] %>;
   location / {
-    proxy_pass <%= node['nginx_proxy']['destination_url'] %>;
+    proxy_pass <%= forward_server['destination_url'] %>;
   }
 }
+<% end %>
